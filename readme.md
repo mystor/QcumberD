@@ -38,6 +38,7 @@ This project has been tested with Python version 2.7. You can try other 2.x vers
 * Some modules that will be installed need to be compiled with GCC.
 * Install GCC by running `apt-get install gcc`
 * Install extra libraries needed for compiling modules: `apt-get install libxml2-dev libxslt1-dev`
+* Install GraphViz for generating prerequisite graphs: `apt-get install graphviz`
 
 I (Phil) could not get Qcumber to run under Python 3 after spending a whole couple seconds of trying. I have not tested on any version of Python other than 2.7.
 
