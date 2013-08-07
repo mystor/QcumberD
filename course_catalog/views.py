@@ -12,7 +12,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.template import RequestContext
 from django.utils.safestring import SafeString
 from course_catalog.models import Course, Subject, Section, Career, Season
-from prereqs.interface import generate_prereq_graph
+from prereqs.interface import generate_prereq_graph_svg
 import model_controls
 
 
@@ -89,10 +89,10 @@ def course_prereqs(request, subject_abbr, course_number):
     except ObjectDoesNotExist:
         return detail_not_found(request, subject_abbr, course_number)
 
-    dotfile = generate_prereq_graph(subject_abbr, course_number)
+    svgfile = generate_prereq_graph_svg(subject_abbr, course_number)
 
     return render(request, 'course_catalog/pages/course_prereqs.html',
-                  {'course': course, 'dotfile': SafeString(dotfile)})
+                  {'course': course, 'svgfile': SafeString(svgfile)})
 
 
 @enforce_subject_upper

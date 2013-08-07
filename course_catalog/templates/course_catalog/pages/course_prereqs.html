@@ -12,13 +12,8 @@
       <li class="active">Prerequisite Chart</li>
     </ul>
 
-    <script type="text/vnd.graphviz" id="graphsrc">
-        {{ dotfile }}
-    </script>
     <div id="graphcontainer">
-        <noscript>Unfortunately, the prerequisite chart display requires Javascript to function correctly.  Please enable Javascript to see the prerequisite chart.</noscript>
-
-        <h1>Generating Prerequisite Chart...</h1>
+        {{ svgfile }}
     </div>
 
     <div class="row">
@@ -66,12 +61,4 @@
            </svg> 
        </div>
     </div>
-    <script src="{{ STATIC_URL }}js/viz.js"></script>
-    <script>
-        (function() {
-            var src = document.getElementById('graphsrc').innerHTML;
-            var generated = Viz(src, 'svg');
-            document.getElementById('graphcontainer').innerHTML = generated;
-        })();
-    </script>
 {% endblock %}

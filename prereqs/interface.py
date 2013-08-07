@@ -8,6 +8,7 @@
 
 
 import json
+import pydot
 
 from prereqs import parser, generator
 from django.core.exceptions import ObjectDoesNotExist
@@ -68,6 +69,13 @@ def generate_prereq_graph(subject, number):
 
     # Return the dotfile form of the set of nodes
     return generator.to_dot(nodes)
+
+
+def generate_prereq_graph_svg(subject, number):
+    return pydot.graph_from_dot_data(
+        # re-encode as ascii to avoid encoding errors
+        generate_prereq_graph(subject, number).encode('ascii', 'ignore')
+    ).create_svg()
 
 
 def prereqs(subject, coursenum):
