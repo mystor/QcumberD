@@ -6,3 +6,5 @@ requests==1.1.0
 django-compressor==1.2
 django-debug-toolbar==0.9.4
 ply==3.4
+pyparsing==1.5.7
+pydot==1.0.28
